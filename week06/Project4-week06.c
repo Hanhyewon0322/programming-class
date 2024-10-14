@@ -6,11 +6,11 @@
 int main(int argc, char *argv[]) {
 	int sum =0;
 	int i;
-	int num; 
+	int n1; 
 	
 	printf("Enter a number:");
-	scanf("%i",num);
-	for(i=1; i<num+1; i++){
+	scanf("%i",&n1);
+	for(i=1; i<n1+1; i++){
 		sum += i;
 	}
 	
