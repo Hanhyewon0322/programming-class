@@ -22,7 +22,7 @@ clean: clean-custom
 	${RM} $(OBJ) $(BIN)
 
 $(BIN): $(OBJ)
-	$(CPP) $(LINKOBJ) -o $(BIN) $(LIBS)
+	$(CC) $(LINKOBJ) -o $(BIN) $(LIBS)
 
-Project5-week10.o: Project5-week10.cpp
-	$(CPP) -c Project5-week10.cpp -o Project5-week10.o $(CXXFLAGS)
+Project5-week10.o: Project5-week10.c
+	$(CC) -c Project5-week10.c -o Project5-week10.o $(CFLAGS)

@@ -1,4 +1,5 @@
-#include <iostream>
+#include <stdio.h>
+#include <stdlib.h>
 #define ROWS 3
 #define COLS 3
 /* run this program using the console pauser or add your own getch, system("pause") or input loop */
