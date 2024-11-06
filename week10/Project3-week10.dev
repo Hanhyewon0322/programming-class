@@ -1,7 +1,6 @@
 [Project]
-FileName=Hello Electronics!.dev
-Name=Hello Electronics!
-UnitCount=1
+FileName=Project3-week10.dev
+Name=Project3-week10
 Type=1
 Ver=2
 ObjFiles=
@@ -17,29 +16,20 @@ IsCpp=0
 Icon=
 ExeOutput=
 ObjectOutput=
+LogOutput=
+LogOutputEnabled=0
 OverrideOutput=0
 OverrideOutputName=
 HostApplication=
-Folders=
-CommandLine=
 UseCustomMakefile=0
 CustomMakefile=
+CommandLine=
+Folders=
 IncludeVersionInfo=0
 SupportXPThemes=0
 CompilerSet=0
 CompilerSettings=0000000000000000000000000
-LogOutput=
-LogOutputEnabled=0
-
-[Unit1]
-FileName=Hello Sookmyung.c
-CompileCpp=0
-Folder=
-Compile=1
-Link=1
-Priority=1000
-OverrideBuildCmd=0
-BuildCmd=
+UnitCount=1
 
 [VersionInfo]
 Major=1
@@ -59,4 +49,14 @@ ProductName=
 ProductVersion=
 AutoIncBuildNr=0
 SyncProduct=1
+
+[Unit1]
+FileName=Project3-week10.c
+CompileCpp=0
+Folder=
+Compile=1
+Link=1
+Priority=1000
+OverrideBuildCmd=0
+BuildCmd=
 
