@@ -18,8 +18,10 @@ void main(void){
 }
 */
 
-void swap(){
-	
+void swap(int*x, int*y){
+	int temp = *x;
+	*x = *y;
+	*y = temp;
 }
 void main(void){
 	int a =3;
