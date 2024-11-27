@@ -15,6 +15,7 @@ int main (void){
 	strcpy(s1.name, "Han");
 	s1.grade=4.3;
 	
-	printf("%d", s1.name);
-	printf("%d", s1.grade);
+	printf("ID: %d", s1.ID);
+	printf("name: %d", s1.name);
+	printf("grade: %d", s1.grade);
 }
