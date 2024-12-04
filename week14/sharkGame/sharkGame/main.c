@@ -8,7 +8,7 @@
 #include <stdlib.h>
 #include <time.h>
 // ----- EX. 1 : Preparation------------
-#include "board.h"
+#include "board.h" 
 
 // ----- EX. 4 : player ------------
 #define N_PLAYER            3
@@ -129,7 +129,7 @@ int getWinner(void)
     
 }
 // ----- EX. 6 : game end ------------
-
+ 
 
 int main(int argc, const char * argv[]) {
     
@@ -137,14 +137,14 @@ int main(int argc, const char * argv[]) {
     int turn=0;
 
 // ----- EX. 1 : Preparation------------
-    srand(time(NULL));
+    srand(time(NULL)); // srand(unsigned(time(NULL))); 실습1  
     opening();
 // ----- EX. 1 : Preparation------------
 
 // ----- EX. 2 : structuring ------------
     //step1 : initialization
     //step1-1 : board initialization
-    board_initBoard();
+    board_initBoard(); // 함수 호출도 되어있음.. 
 
 // ----- EX. 4 : player ------------
     //step1-2 : initialize player
@@ -204,7 +204,50 @@ int main(int argc, const char * argv[]) {
     printf("GAME END!!\n");
     printf("%i players are alive! winner is %s\n", getAlivePlayer(), player_name[getWinner()]);
 // ----- EX. 6 : game end ------------
-    
+    int game_end(void)
+    {
+    	int i;
+    	int flag_end=1;
+    	
+    	for (i=0; i<N_PLAYER;i++)
+    	{
+    		if (player_status[i]== PLAYERSTATUS_LIVE)
+    		{
+    			flag_end =0;
+    			break;
+			}
+		}
+		return flag_end;
+	}
+	
+	int getAlivePlayer(void)
+	{
+		int i;
+		int cnt=0;
+		for (i=0;i<N_PLAYER;i++)
+		{
+			if (player_status[i] == PLAYERSTATUS_END)
+				cnt++;
+		}
+		return cnt;
+	}
+	
+	int getWinner(void)
+	{
+		int i;
+		int winner=0;
+		int max_coin=-1;
+		
+		for (i=0;i<N_PLAYER;i++)
+		{
+			if(player_coin[i]>max_coin)
+			{
+				max_coin = player_coin [i];
+				winner =i;
+			}
+		}
+		return winner;
+	}
 // ----- EX. 2 : structuring ------------
 
     return 0;
