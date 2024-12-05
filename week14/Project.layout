@@ -2,9 +2,9 @@
 Order=2,0,1
 Focused=2
 [Editor_0]
-CursorCol=1
-CursorRow=81
-TopLine=81
+CursorCol=2
+CursorRow=104
+TopLine=71
 LeftChar=1
 [Editor_1]
 CursorCol=21
@@ -14,5 +14,5 @@ LeftChar=1
 [Editor_2]
 CursorCol=48
 CursorRow=228
-TopLine=61
+TopLine=210
 LeftChar=1
