@@ -63,6 +63,7 @@ int game_end(void)
             flag_end = 0;
             break;
         }
+       
     }
     
     return flag_end;
@@ -119,15 +120,36 @@ void checkDie(void)
 // ----- EX. 5 : shark ------------
 
 // ----- EX. 6 : game end ------------
-int getAlivePlayer(void)
-{
-   
-}
 
+int getAlivePlayer(void)
+	{
+		int i;
+		int cnt=0;
+		for (i=0;i<N_PLAYER;i++)
+		{
+			if (player_status[i] == PLAYERSTATUS_END)
+				cnt++;
+		}
+		return cnt;
+	}
+	
 int getWinner(void)
-{
-    
-}
+	{
+		int i;
+		int winner=0;
+		int max_coin=-1;
+		
+		for (i=0;i<N_PLAYER;i++)
+		{
+			if(player_coin[i]>max_coin)
+			{
+				max_coin = player_coin [i];
+				winner =i;
+			}
+		}
+		return winner;
+	}
+
 // ----- EX. 6 : game end ------------
  
 
@@ -137,14 +159,14 @@ int main(int argc, const char * argv[]) {
     int turn=0;
 
 // ----- EX. 1 : Preparation------------
-    srand(time(NULL)); // srand(unsigned(time(NULL))); 실습1  
+    srand(time(NULL));  
     opening();
 // ----- EX. 1 : Preparation------------
 
 // ----- EX. 2 : structuring ------------
     //step1 : initialization
     //step1-1 : board initialization
-    board_initBoard(); // 함수 호출도 되어있음.. 
+    board_initBoard();  
 
 // ----- EX. 4 : player ------------
     //step1-2 : initialize player
@@ -173,6 +195,7 @@ int main(int argc, const char * argv[]) {
 // ----- EX. 4 : player ------------
         
         //step 2-1. status printing
+        
 // ----- EX. 3 : board ------------
         board_printBoardStatus();
 // ----- EX. 3 : board ------------
@@ -191,63 +214,39 @@ int main(int argc, const char * argv[]) {
         
         
         //step 2-3. moving
-   
+   		player_position[turn] += dieResult;
+   		if(player_position[turn] >= N_BOARD - 1)
+		   {
+		    player_position[turn] = N_BOARD - 1;
+		if (player_status[turn] != PLAYERSTATUS_END)
+		{
+			player_status[turn] = PLAYERSTATUS_END;
+   		}
+}
+   			
         //step 2-4. coin
+        coinResult = board_getBoardCoin(player_position[turn]);
+        player_coin[turn] += coinResult;
     
-        
         //step 2-5. end process
+        board_stepShark();
+        checkDie();
+        
+        turn = (turn +1) % N_PLAYER;
     
 // ----- EX. 6 : game end ------------
-    } while(game_end() == 0);
+    } while(game_end()==0);
+    
     
     //step 3. game end process
     printf("GAME END!!\n");
+    
+    int winner = getWinner();
     printf("%i players are alive! winner is %s\n", getAlivePlayer(), player_name[getWinner()]);
+
 // ----- EX. 6 : game end ------------
-    int game_end(void)
-    {
-    	int i;
-    	int flag_end=1;
-    	
-    	for (i=0; i<N_PLAYER;i++)
-    	{
-    		if (player_status[i]== PLAYERSTATUS_LIVE)
-    		{
-    			flag_end =0;
-    			break;
-			}
-		}
-		return flag_end;
-	}
-	
-	int getAlivePlayer(void)
-	{
-		int i;
-		int cnt=0;
-		for (i=0;i<N_PLAYER;i++)
-		{
-			if (player_status[i] == PLAYERSTATUS_END)
-				cnt++;
-		}
-		return cnt;
-	}
-	
-	int getWinner(void)
-	{
-		int i;
-		int winner=0;
-		int max_coin=-1;
-		
-		for (i=0;i<N_PLAYER;i++)
-		{
-			if(player_coin[i]>max_coin)
-			{
-				max_coin = player_coin [i];
-				winner =i;
-			}
-		}
-		return winner;
-	}
+
+
 // ----- EX. 2 : structuring ------------
 
     return 0;
