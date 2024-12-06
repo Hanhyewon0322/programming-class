@@ -233,6 +233,13 @@ int main(int argc, const char * argv[]) {
         checkDie();
         
         turn = (turn +1) % N_PLAYER;
+        
+        if (turn ==0){
+        	int shark_pos = board_stepShark();
+        	printf("Shark moved to %i\n", shark_pos);
+        	
+        	checkDie();
+		}
     
 // ----- EX. 6 : game end ------------
     } while(game_end()==0);
