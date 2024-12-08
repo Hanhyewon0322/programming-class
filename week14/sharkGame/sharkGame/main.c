@@ -205,7 +205,8 @@ int main(int argc, const char * argv[]) {
 
         //step 2-2. rolling die
 // ----- EX. 4 : player ------------
-        printf("%s turn!! ", player_name[turn]);
+		
+		printf("%s turn!! ", player_name[turn]);
         printf("Press any key to roll a die!\n");
         scanf("%d", &dum);
         fflush(stdin);
@@ -227,14 +228,15 @@ int main(int argc, const char * argv[]) {
         //step 2-4. coin
         coinResult = board_getBoardCoin(player_position[turn]);
         player_coin[turn] += coinResult;
+    	
     
         //step 2-5. end process
-        board_stepShark();
+       
         checkDie();
         
         turn = (turn +1) % N_PLAYER;
         
-        if (turn ==0){
+        if (turn == 0){
         	int shark_pos = board_stepShark();
         	printf("Shark moved to %i\n", shark_pos);
         	
